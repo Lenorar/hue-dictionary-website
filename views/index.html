@@ -1,0 +1,38 @@
+<% include ./partials/boilerplate %>
+
+<form id= "from">
+  <label>look up word</label>
+  <input type="text" name="title" placeholder="type word" />
+  <input id ="wordSearch" type="submit" value="submit"/>
+</form>
+
+
+
+<div class="answer">
+
+<!-- this is the word entered -->
+  <div class='wordSelected'>
+    <h1 id='word'></h1>
+  </div>
+
+<!-- this is first definition -->
+  <div>
+    <h2>definition</h2>
+    <p id='definition'></p>
+  </div>
+
+<!-- this is an example of how to use it -->
+  <div>
+    <h2>example</h2>
+    <p id='exampleOfDefinition'></p>
+  </div>
+
+<!-- this is the words etymology -->
+  <div>
+    <h2>etymology</h2>
+    <p id='etymology'></p>
+  </div>
+
+</div>
+
+<% include ./partials/end %>

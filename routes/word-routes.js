@@ -1,8 +1,8 @@
 const express = require('express');
 const wordsController = require('../controllers/words-controller')
+const wordHelper = require('../services/word-helper');
 
 
-const quoteHelper = require('../services/word-helper');
 
 
 const wordRoutes = express.Router();

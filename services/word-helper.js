@@ -14,22 +14,19 @@ function getWord (req, res, next){
 
       res.locals.word = data.results.id;
 
-      res.locals.etymologies = data.results.entries.etymologies;
-
       res.locals.definition = data.results.lexicalEntries.entries.senses.definitions;
       res.locals.exampleOfDefinition = data.results.lexicalEntries.entries.senses.examples.text;
 
-      res.locals.additionalDefinitions = data.results.lexicalEntries.entries.senses.subsenses.definitions;
-      res.locals.exampleOfAdditionalDefinitions = data.results.lexicalEntries.entries.senses.subsenses.examples.text;
+      res.locals.etymology = data.results.entries.etymologies;
+
 
     }.catch((err) => {
       console.log(err);
       res.locals.word = null;
-      res.locals.etymologies = null;
       res.locals.definition = null;
       res.locals.exampleOfDefinition = null;
-      res.locals.additionalDefinitions = null;
-      res.locals.exampleOfAdditionalDefinitions = null;
+      res.locals.etymologies = null;
+
       next();
     });
 }
