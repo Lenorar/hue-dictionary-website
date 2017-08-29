@@ -4,6 +4,8 @@
   "description": "allows users to search words and add them to their personal library to better incorporate advanced words into their vocabulary. ",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,5 +13,16 @@
     "url": "https://git.generalassemb.ly/lenorarigoni/Project-Two.git"
   },
   "author": "Lenora Rigoni",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2",
+    "pg-promise": "^6.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
 }
