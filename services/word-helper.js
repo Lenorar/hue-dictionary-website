@@ -1,7 +1,7 @@
 require('isomorphic-fetch')
 
 
-function getWord (req, res, next){
+function getWord(req, res, next){
   fetch('https://od-api.oxforddictionaries.com/api/v1/entries/{source_lang}/{word_id}', {
     headers:{
       'app_id':'583cac1b',
@@ -19,6 +19,7 @@ function getWord (req, res, next){
 
       res.locals.etymology = data.results.entries.etymologies;
 
+      // next(); THINK THIS IS MY PROBLEM! like where is going! i need to it go to index.html
 
     }.catch((err) => {
       console.log(err);
@@ -31,3 +32,6 @@ function getWord (req, res, next){
     });
 }
 
+module.exports = {
+  getWord: getWord
+}

@@ -1,38 +1,48 @@
-<% include ./partials/boilerplate %>
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
-<form id= "from">
-  <label>look up word</label>
-  <input type="text" name="title" placeholder="type word" />
-  <input id ="wordSearch" type="submit" value="submit"/>
-</form>
+  <link rel='stylesheet' type='text/css' href='/styles/reset.css'>
+  <link rel='stylesheet' type='text/css' href='/styles/style.css'>
+  <title>user-dictionary</title>
+<body>
+  <form id= "from">
+    <label>look up word</label>
+    <input type="text" name="wordSearch" placeholder="type word" />
+    <input id ="submit" type="submit" value="submit"/>
+  </form>
 
+  <div class="answer">
+  <!-- this is the word entered -->
+    <div class='wordSelected'>
+      <h1 id='word'></h1>
+    </div>
 
+  <!-- this is first definition -->
+    <div>
+      <h2>definition</h2>
+      <p id='definition'></p>
+    </div>
 
-<div class="answer">
+  <!-- this is an example of how to use it -->
+    <div>
+      <h2>example</h2>
+      <p id='exampleOfDefinition'></p>
+    </div>
 
-<!-- this is the word entered -->
-  <div class='wordSelected'>
-    <h1 id='word'></h1>
+  <!-- this is the words etymology -->
+    <div>
+      <h2>etymology</h2>
+      <p id='etymology'></p>
+    </div>
   </div>
+  <script src="../public/js/main.js"></script>
+</body>
+</html>
 
-<!-- this is first definition -->
-  <div>
-    <h2>definition</h2>
-    <p id='definition'></p>
-  </div>
 
-<!-- this is an example of how to use it -->
-  <div>
-    <h2>example</h2>
-    <p id='exampleOfDefinition'></p>
-  </div>
 
-<!-- this is the words etymology -->
-  <div>
-    <h2>etymology</h2>
-    <p id='etymology'></p>
-  </div>
 
-</div>
-
-<% include ./partials/end %>
