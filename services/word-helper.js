@@ -8,9 +8,10 @@ function getWord (req, res, next){
       'app_key':'6df1c099a96a056d7584d36dfe5eedd5'
     }
   })
-  .then((fetchRes) => {
-      return fetchRes.json();
+  .then((oxfordDictionaryRes) => {
+      return oxfordDictionaryRes.json();
     }).then((data) => {
+
       res.locals.word = data.results.id;
 
       res.locals.etymologies = data.results.entries.etymologies;
@@ -23,7 +24,7 @@ function getWord (req, res, next){
 
     }.catch((err) => {
       console.log(err);
-      res.locals.word = 'Coming Soon!';
+      res.locals.word = null;
       res.locals.etymologies = null;
       res.locals.definition = null;
       res.locals.exampleOfDefinition = null;
