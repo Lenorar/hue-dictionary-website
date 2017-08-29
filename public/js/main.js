@@ -14,13 +14,11 @@ $('#submit').click(function(){
 
   .done(function(data) {
 
-
     //creates text for the values that wordSearch corresponds to
     word.text(data.results.id)
     definition.text(data.results.lexicalEntries.entries.senses.definitions)
     exampleOfDefinition.text(data.results.lexicalEntries.entries.senses.examples.text)
     etymology.text(data.results.entries.etymologies)
-
   })
 
   .fail(function() {

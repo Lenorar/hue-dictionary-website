@@ -5,7 +5,7 @@ const wordHelper = require('../services/word-helper');
 
 const wordRoutes = express.Router();
 
-wordRoutes.get('/search', wordHelper.getWord)
+wordRoutes.get('/', wordHelper.getWord)
 
 
 module.exports = wordRoutes;
