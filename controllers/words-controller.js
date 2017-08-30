@@ -5,7 +5,7 @@ const Word = require('../models/word');
 const wordsController = {};
 
 wordsController.index = (req, res) => {
-  word.findAll()
+  Word.findAll()
     .then(words => {
       res.render('words/index', { words: words });
     })
