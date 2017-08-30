@@ -3,9 +3,12 @@ const wordsController = require('../controllers/words-controller')
 const wordHelper = require('../services/word-helper');
 
 
-const wordRoutes = express.Router();
+const wordsRouter = express.Router();
 
-wordRoutes.get('/', wordHelper.getWord)
+// wordsRoutes.get('/', wordHelper.getWord)
+
+wordsRouter.get('/', wordsController.index)
 
 
-module.exports = wordRoutes;
+module.exports = wordsRouter;
+

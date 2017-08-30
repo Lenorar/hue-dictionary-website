@@ -1,0 +1,13 @@
+<%# views/words/index.ejs %>
+
+<h1>All the words</h1>
+
+<% words.forEach(word => { %>
+  <div class="word">
+    <h4>
+        <%= word.word %>
+      </a>
+    </h4>
+    <p><%= word.description %></p>
+  </div>
+<% }) %>
