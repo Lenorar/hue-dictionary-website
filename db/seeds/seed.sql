@@ -2,4 +2,3 @@
 
 \i users.sql;
 \i words.sql;
-\i users_words.sql;
