@@ -1,4 +1,5 @@
-localStorage.setItem('words', 'affinity');
 
+
+localStorage.setItem('words', 'affinity');
 
 console.log(localStorage.getItem('Hello'))

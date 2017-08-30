@@ -3,18 +3,23 @@ const wordsController = require('../controllers/words-controller')
 const wordHelper = require('../services/word-helper');
 const wordsRouter = express.Router();
 
-// wordsRoutes.get('/', wordHelper.getWord)
+wordsRouter.get('/', wordHelper.getWord)
 
-wordsRouter.get('/', wordsController.index)
+wordsRouter.get('/', wordsController.index);
+// wordsRouter.post('/', wordsController.create);
 
-wordsRouter.get('/:id', wordsController.show)
+// wordsRouter.get('/auth/library', (req, res) => {
+//   res.render('words/library');
+// });
 
-wordsRouter.delete('/:id', wordsController.destroy)
+wordsRouter.get('/:id', wordsController.show);
+
+wordsRouter.delete('/:id', wordsController.destroy);
 
 
-wordsRouter.put('/:id', wordsController.update)
+wordsRouter.put('/:id', wordsController.update);
 
-wordsRouter.get('/:id/edit', wordsController.edit)
+wordsRouter.get('/:id/edit', wordsController.edit);
 
 
 module.exports = wordsRouter;

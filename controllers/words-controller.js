@@ -25,6 +25,20 @@ wordsController.show = (req, res) => {
     });
 };
 
+
+// wordsController.create = (req, res) => {
+//   Word.create({
+//     word: req.body.word,
+//     definition: req.body.definition,
+//     // user_id: req.user.id,
+//   }).then(word => {
+//       res.redirect(`/words/${word.id}`);
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(400).json(err);
+//   })
+// };
+
 wordsController.edit = (req, res) => {
   Word.findById(req.params.id)
     .then(word => {
@@ -49,7 +63,6 @@ wordsController.update = (req, res) => {
 };
 
 
-
 wordsController.destroy = (req, res) => {
   Word.destroy(req.params.id)
     .then(() => {
@@ -59,9 +72,6 @@ wordsController.destroy = (req, res) => {
       res.status(400).json(err);
     });
 };
-
-
-
 
 
 module.exports = wordsController;

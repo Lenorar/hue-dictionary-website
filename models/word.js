@@ -8,6 +8,12 @@ Word.findAll = () => {
   return db.query('SELECT * FROM words');
 };
 
+// Word.join = (word) => {
+//   return db.query(
+//     `SELECT * FROM users INNER JOIN
+//     words ON users.id = word.user_id`
+//     )
+// }
 
 Word.findById = (id) => {
   return db.oneOrNone(`SELECT * FROM words WHERE id = $1`, [id]);

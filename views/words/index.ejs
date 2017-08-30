@@ -1,8 +1,21 @@
 <%# views/words/index.ejs %>
 
-<h1>All the words</h1>
+<h1>search words</h1>
 
-<% words.forEach(word => { %>
+<form>
+
+  <label for="word">Look up a word</label>
+  <input id="word-retrieval" type="text" name="Look up a word" placeholder="word">
+
+  <input type="submit" value="look up" />
+</form>
+
+
+
+
+
+
+<!-- <% words.forEach(word => { %>
   <div class="word">
     <h4>
         <%= word.word %>
@@ -10,6 +23,4 @@
     </h4>
     <p><%= word.definition %></p>
   </div>
-<% }) %>
-
-<script src="/js/ls.js" type="text/javascript" charset="utf-8" async defer></script>
+<% }) %> -->
