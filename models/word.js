@@ -13,7 +13,28 @@ Word.findById = (id) => {
   return db.oneOrNone(`SELECT * FROM words WHERE id = $1`, [id]);
 }
 
+Word.update = (words, id) => {
+  return db.none(
+    `
+      UPDATE words SET
+      used_in_sentence = $1
+      WHERE id = $2
+    `,
+    [words.used_in_sentence, id]
+  );
+};
+
+
+Word.destroy = (id) => {
+    return db.none(
+    `
+      DELETE FROM words
+      WHERE id = $1
+    `,
+    [id]
+  );
+};
+
 
 module.exports = Word;
-
 

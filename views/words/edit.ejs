@@ -1,0 +1,13 @@
+<%# views/words/edit.ejs %>
+
+<h1>Edit the sentence</h1>
+
+<form action="<%= `/words/${word.id}?_method=PUT` %>" method="POST">
+
+  <label for="used_in_sentence">Used in a sentence</label>
+  <input id="used_in_sentence" type="text" name="used_in_sentence" placeholder="try a new sentence that works better for you" value="<%= word.used_in_sentence %>" />
+
+  <input type="submit" value="Save changes" />
+</form>
+
+<a href="<%= `/words/${word.id}` %>">Cancel</a>

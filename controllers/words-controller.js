@@ -25,6 +25,40 @@ wordsController.show = (req, res) => {
     });
 };
 
+wordsController.edit = (req, res) => {
+  Word.findById(req.params.id)
+    .then(word => {
+      res.render('words/edit', {
+        word:word
+      })
+    }).catch(err => {
+      res.status(400).json(err);
+    });
+};
+
+
+wordsController.update = (req, res) => {
+  Word.update({
+    used_in_sentence: req.body.used_in_sentence
+  }, req.params.id)
+  .then(() => {
+    res.redirect(`/words/${req.params.id}`)
+  }).catch(err =>{
+    res.status(400).json(err);
+  });
+};
+
+
+
+wordsController.destroy = (req, res) => {
+  Word.destroy(req.params.id)
+    .then(() => {
+      res.redirect('/words')
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+};
 
 
 

@@ -3,5 +3,12 @@
 <h1><%= word.word %></h1>
 
 <p><%= word.definition %></p>
+<p><%= word.used_in_sentence %></p>
+
+<a href="<%= `/words/${word.id}/edit`%>">Edit the sentence</a>
+
+<form action="<%= `/words/${word.id}?_method=DELETE` %>" method="POST">
+  <input type="submit" value="Delete" />
+</form>
 
 <a href="/words">Look up more words</a>
