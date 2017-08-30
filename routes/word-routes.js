@@ -7,6 +7,8 @@ const wordsRouter = express.Router();
 
 wordsRouter.get('/', wordsController.index)
 
+wordsRouter.get('/:id', wordsController.show)
+
 
 module.exports = wordsRouter;
 
