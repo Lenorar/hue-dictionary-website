@@ -5,13 +5,16 @@ const passport = require('../services/auth/local');
 const authHelpers = require('../services/auth/auth-helpers');
 const usersController = require('../controllers/users-controller');
 
-authRouter.get('/login', authHelpers.loginRedirect, (req, res) => {
+authRouter.get('/login', (req, res) => {
   res.render('auth/login');
 });
 
-authRouter.get('/register', authHelpers.loginRedirect, (req, res) => {
+authRouter.get('/register', (req, res) => {
   res.render('auth/register');
 });
+
+// create a protected route
+//authRouter.get('/library', authHelpers.loginRedirect, usersController.library);
 
 authRouter.post('/register', usersController.create);
 

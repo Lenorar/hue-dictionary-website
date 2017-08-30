@@ -11,9 +11,10 @@ wordsRouter.get('/:id', wordsController.show)
 
 wordsRouter.delete('/:id', wordsController.destroy)
 
-wordsRouter.get('/:id/edit', wordsController.edit)
 
 wordsRouter.put('/:id', wordsController.update)
+
+wordsRouter.get('/:id/edit', wordsController.edit)
 
 
 module.exports = wordsRouter;

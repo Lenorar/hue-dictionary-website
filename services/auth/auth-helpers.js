@@ -10,7 +10,7 @@ function loginRedirect(req, res, next) {
 }
 
 function loginRequired(req, res, next) {
-  if (!req.user) return res.redirect('/');
+  if (!req.user) return res.redirect('/auth/login');
   return next();
 }
 
