@@ -25,20 +25,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
-app.use('/auth', authRouter);
-app.use('/words', wordsRouter)
-
-
 app.get('/', (req, res) => {
-  res.send('Hello, world!');
+  res.render('index');
 });
 
 
+app.use('/auth', authRouter);
 
+app.use('/words', wordsRouter)
 
-// const wordRoutes = require('./routes/word-routes');
-// app.use('/search', wordRoutes)
+// app.get('/', (req, res) => {
+//   //i need the search to be here
+//   res.send('Hello, world!');
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

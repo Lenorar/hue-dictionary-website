@@ -1,6 +1,8 @@
 <%# views/words/show.ejs %>
 
-<h1><%= word.word %></h1>
+<% include ./partials/boilerplate %>
+
+<h1><%= word.title %></h1>
 
 <p><%= word.definition %></p>
 <p><%= word.used_in_sentence %></p>
@@ -12,3 +14,5 @@
 </form>
 
 <a href="/words">Look up more words</a>
+
+<% include ./partials/end %>

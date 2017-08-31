@@ -1,5 +1,7 @@
 <%# views/words/edit.ejs %>
 
+<% include ./partials/boilerplate %>
+
 <h1>Edit the sentence</h1>
 
 <form action="<%= `/words/${word.id}?_method=PUT` %>" method="POST">
@@ -11,3 +13,6 @@
 </form>
 
 <a href="<%= `/words/${word.id}` %>">Cancel</a>
+
+
+<% include ./partials/end %>

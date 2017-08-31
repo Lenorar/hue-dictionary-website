@@ -3,6 +3,12 @@ const Word = require('../models/word');
 
 const wordsController = {};
 
+wordsController.results = (req, res) => {
+  res.render('words/results', {
+    word: res.locals.word
+  })
+};
+
 wordsController.index = (req, res) => {
   Word.findAll()
     .then(words => {
@@ -39,6 +45,7 @@ wordsController.show = (req, res) => {
 //   })
 // };
 
+
 wordsController.edit = (req, res) => {
   Word.findById(req.params.id)
     .then(word => {
@@ -50,7 +57,7 @@ wordsController.edit = (req, res) => {
     });
 };
 
-
+//have to update this
 wordsController.update = (req, res) => {
   Word.update({
     used_in_sentence: req.body.used_in_sentence

@@ -1,0 +1,34 @@
+<!-- this shows what i want from my api data -->
+
+<% include ../partials/boilerplate %>
+
+    <h1><%= word.title %></h1>
+
+    <h1>definition</h1>
+    <p><%= word.definition%></p>
+    console.log(word.definition)
+
+    <h2>used in a sentence</h2>
+    <p><%= word.examples%></p>
+
+    <h2>etymology</h2>
+    <p><%= word.etymology%></p>
+
+    <h2>More definition</h2>
+    <p><%= word.otherdefinitions%></p>
+
+    <h2>more examples</h2>
+    <p><%=word.otherexamples%></p>
+
+    <button>add to library</button>
+
+<% include ../partials/end %>
+
+
+
+
+
+
+
+
+
