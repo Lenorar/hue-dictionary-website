@@ -4,6 +4,9 @@
 
     <h1><%= word.title %></h1>
 
+    <h2>etymology</h2>
+    <p><%= word.etymology%></p>
+
     <h1>definition</h1>
     <p><%= word.definition%></p>
     console.log(word.definition)
@@ -11,8 +14,6 @@
     <h2>used in a sentence</h2>
     <p><%= word.examples%></p>
 
-    <h2>etymology</h2>
-    <p><%= word.etymology%></p>
 
     <h2>More definition</h2>
     <p><%= word.otherdefinitions%></p>
@@ -20,7 +21,25 @@
     <h2>more examples</h2>
     <p><%=word.otherexamples%></p>
 
-    <button>add to library</button>
+
+<!-- here is where the user can add words to the library and user into the same table -->
+<form method="POST" action="/dictionary">
+
+  <input type="hidden" name="title" value="<%= word.title %>">
+
+  <input type="hidden" name="etymology" value="<%= word.etymology %>">
+
+  <input type="hidden" name="definition" value="<%= word.definition %>">
+
+  <input type="hidden" name="examples" value="<%= word.examples %>">
+
+  <input type="hidden" name="otherdefinitions" value="<%= word.otherdefinitions %>">
+
+  <input type="hidden" name="moreexamples" value="<%= word.otherexamples %>">
+
+  <input type="submit">
+
+</form>
 
 <% include ../partials/end %>
 
