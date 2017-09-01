@@ -3,6 +3,38 @@ const Word = require('../models/word');
 
 const wordsController = {};
 
+//this adds the searched word to words table
+wordsController.create = (req, res, next) => {
+  console.log('IM HERE --> ');
+  Word.create({
+    title: req.body.title,
+    etymology: req.body.etymology,
+    definition: req.body.definition
+    // examples: req.body.examples,
+    // otherdefinitions: req.body.otherdefinitions,
+    // otherexamples: req.body.otherexamples,
+})
+.then(word => {
+      next();
+  }).catch(err => {
+    console.log(err);
+    res.status(400).json(err);
+  })
+};
+
+wordsController.userAndWord = (req, res) => {
+  Word.userAndWord({
+    user_id: req.user.id,
+    word_id: req.params.id
+  })
+    .then((word) => {
+      res.redirect('/user/dictionary')
+    })
+    .catch((err) => {
+      res.status(500).json(err)
+    })
+}
+
 wordsController.results = (req, res) => {
   res.render('words/results', {
     word: res.locals.word
@@ -19,7 +51,6 @@ wordsController.index = (req, res) => {
     });
 };
 
-
 wordsController.show = (req, res) => {
   Word.findById(req.params.id)
     .then(word => {
@@ -32,18 +63,7 @@ wordsController.show = (req, res) => {
 };
 
 
-// wordsController.create = (req, res) => {
-//   Word.create({
-//     word: req.body.word,
-//     definition: req.body.definition,
-//     // user_id: req.user.id,
-//   }).then(word => {
-//       res.redirect(`/words/${word.id}`);
-//   }).catch(err => {
-//     console.log(err);
-//     res.status(400).json(err);
-//   })
-// };
+
 
 
 wordsController.edit = (req, res) => {

@@ -13,7 +13,7 @@ usersController.create = (req, res) => {
   }).then(user => {
     req.login(user, (err) => {
       if (err) return next(err);
-      res.redirect('/auth/library');
+      res.redirect('/');
     });
   }).catch(err => {
     console.log(err);

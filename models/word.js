@@ -15,6 +15,28 @@ Word.findAll = () => {
 //     )
 // }
 
+Word.create = (words) => {
+  return db.one(
+    `
+      INSERT INTO words
+      (title, etymology, definition)
+      VALUES ($1, $2, $3) RETURNING *
+    `,
+    [words.title, words.etymology, words.definition]
+  );
+};
+
+Word.userAndWord = (words, user) => {
+  return db.one (
+    `
+    INSERT INTO users_words
+    (req.body.users(id), req.body.words(id)
+    VALUES ($1, $2) RETURNING *
+    `,
+    [users_words.user_id, users_words.word_id]
+    );
+};
+
 Word.findById = (id) => {
   return db.oneOrNone(`SELECT * FROM words WHERE id = $1`, [id]);
 }

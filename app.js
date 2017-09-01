@@ -34,10 +34,7 @@ app.use('/auth', authRouter);
 
 app.use('/words', wordsRouter)
 
-// app.get('/', (req, res) => {
-//   //i need the search to be here
-//   res.send('Hello, world!');
-// });
+app.use('/dictionary', wordsRouter)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
