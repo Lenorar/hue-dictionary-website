@@ -1,31 +1,24 @@
 <%# views/words/index.ejs %>
-
+<h1>hello</h1>
 
 <!-- PAGE TO LOOK UP WORDS..'POST' -->
 
-<!-- <% include ../partials/boilerplate %>
+<% include ../partials/boilerplate %>
 
 
-<form method="POST" action="/words/search">
-
-  <label for="word">Look up a word</label>
-  <input id="word-retrieval" type="text" name="wordsubmitted" placeholder="word">
-  <input type="submit" value="look up" />
-
-</form>
-
-<script src="../public/js/main.js"></script>
-
-<% include ../partials/end %> -->
-
-
-
-<!-- <% words.forEach(word => { %>
+<% words.forEach(word => { %>
   <div class="word">
     <h4>
-        <%= word.word %>
+        <%= word.title %>
       </a>
     </h4>
     <p><%= word.definition %></p>
   </div>
-<% }) %> -->
+<% }) %>
+
+<% include ../partials/end %>
+
+
+
+
+

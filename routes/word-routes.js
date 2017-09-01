@@ -21,7 +21,7 @@ wordsRouter.post('/results', wordHelper.getWord, wordsController.results);
 
 
 // authHelpers.loginRequired,
-wordsRouter.post('/', authHelpers.loginRequired, wordsController.create);
+wordsRouter.post('/', authHelpers.loginRequired, wordsController.create, wordsController.userAndWord);
 
 wordsRouter.get('/:id', wordsController.show);
 

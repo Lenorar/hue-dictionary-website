@@ -15,25 +15,25 @@ Word.findAll = () => {
 //     )
 // }
 
-Word.create = (words) => {
+Word.create = (words, userid) => {
   return db.one(
     `
       INSERT INTO words
-      (title, etymology, definition)
-      VALUES ($1, $2, $3) RETURNING *
+      (title, etymology, definition, user_id)
+      VALUES ($1, $2, $3, $4) RETURNING *
     `,
-    [words.title, words.etymology, words.definition]
+    [words.title, words.etymology, words.definition, userid]
   );
 };
 
-Word.userAndWord = (words, user) => {
+Word.userAndWord = (word) => {
   return db.one (
     `
     INSERT INTO users_words
-    (req.body.users(id), req.body.words(id)
+    (user_id, word_id)
     VALUES ($1, $2) RETURNING *
     `,
-    [users_words.user_id, users_words.word_id]
+    [word.user_id, word.id]
     );
 };
 

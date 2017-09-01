@@ -20,8 +20,7 @@ CREATE TABLE IF NOT EXISTS words (
   examples TEXT,
   otherdefinitions TEXT,
   otherexamples TEXT,
-  user_id integer REFERENCES users(id),
-
+  user_id integer REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS users_words (
@@ -29,7 +28,6 @@ CREATE TABLE IF NOT EXISTS users_words (
   word_id integer REFERENCES words(id)
 );
 
--- SELECT * FROM users INNER JOIN words ON users.id = words.user_id
 
 -- this will be used for users to add words to their database in the model sections.
 

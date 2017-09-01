@@ -34,7 +34,7 @@ app.use('/auth', authRouter);
 
 app.use('/words', wordsRouter)
 
-app.use('/dictionary', wordsRouter)
+app.use('/user-dictionary', wordsRouter)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
