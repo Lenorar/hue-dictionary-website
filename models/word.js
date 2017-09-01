@@ -27,13 +27,25 @@ Word.create = (words, userid) => {
 };
 
 Word.userAndWord = (word) => {
-  return db.one (
+  return db.query (
     `
     INSERT INTO users_words
     (user_id, word_id)
     VALUES ($1, $2) RETURNING *
     `,
     [word.user_id, word.word_id]
+    );
+};
+
+
+Word.showWordsUser = (userid) => {
+  return db.one (
+    `
+    SELECT words.definition, words.title
+    FROM words INNER JOIN
+    users_words ON words.id = word_id
+    WHERE users_words.user_id=$1
+    `, [userid]
     );
 };
 

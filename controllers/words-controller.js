@@ -32,12 +32,39 @@ wordsController.userAndWord = (req, res) => {
     word_id: res.locals.newWord.id
   })
     .then((newWord) => {
-      res.render('words/user-dictionary')
+      console.log('what we just inserted', newWord);
+      res.locals.newWord = newWord;
+      next();
+      // res.render('words/user-dictionary')
     })
     .catch((err) => {
       res.status(500).json(err)
     })
 }
+
+
+wordsController.showWordsUser = (req, res) => {
+  console.log('inside showWordsUser ->', res.locals.newWord);
+  Word.showWordsUser({
+    user_id: req.user.id,
+  })
+    .then(listOfWords => {
+
+      console.log('THIS', listOfWords);
+      // res.locals.newWord = newWord;
+      res.render('words/user-dictionary', {list: listOfWords});
+    })
+    .catch((err) => {
+      res.status(500).json(err)
+    })
+}
+
+
+
+
+
+
+
 
 wordsController.results = (req, res) => {
   res.render('words/results', {
