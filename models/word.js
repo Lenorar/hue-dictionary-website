@@ -33,7 +33,7 @@ Word.userAndWord = (word) => {
     (user_id, word_id)
     VALUES ($1, $2) RETURNING *
     `,
-    [word.user_id, word.id]
+    [word.user_id, word.word_id]
     );
 };
 

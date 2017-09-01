@@ -15,7 +15,7 @@ wordsController.create = (req, res, next) => {
     // otherexamples: req.body.otherexamples,
 }, req.user.id)
 .then(newWord => {
-      console.log('what we just inserted', newWord);
+      console.log('what we just inserted', newWord.id);
       res.locals.newWord = newWord;
       next();
   }).catch(err => {
@@ -26,12 +26,12 @@ wordsController.create = (req, res, next) => {
 
 
 wordsController.userAndWord = (req, res) => {
-  console.log('inside userAndWord -> ', res.locals.newWord);
+  console.log('inside userAndWord -> ', res.locals.newWord.id);
   Word.userAndWord({
     user_id: req.user.id,
     word_id: res.locals.newWord.id
   })
-    .then((word) => {
+    .then((newWord) => {
       res.render('words/user-dictionary')
     })
     .catch((err) => {
