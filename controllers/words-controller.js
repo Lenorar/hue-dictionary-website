@@ -15,7 +15,7 @@ wordsController.create = (req, res, next) => {
     // otherexamples: req.body.otherexamples,
 }, req.user.id)
 .then(newWord => {
-      console.log('what we just inserted', newWord.id);
+      console.log('this is the word id', newWord.id);
       res.locals.newWord = newWord;
       next();
   }).catch(err => {
@@ -26,14 +26,15 @@ wordsController.create = (req, res, next) => {
 
 
 wordsController.userAndWord = (req, res) => {
-  console.log('inside userAndWord -> ', res.locals.newWord.id);
+  console.log('inside userAndWord -> ', res.locals.newWord);
   Word.userAndWord({
     user_id: req.user.id,
     word_id: res.locals.newWord.id
   })
     .then((newWord) => {
-      console.log('what we just inserted', newWord);
       res.locals.newWord = newWord;
+      console.log('.then inside userAndWord', newWord);
+
       next();
       // res.render('words/user-dictionary')
     })
@@ -43,8 +44,9 @@ wordsController.userAndWord = (req, res) => {
 }
 
 
-wordsController.showWordsUser = (req, res) => {
-  console.log('inside showWordsUser ->', res.locals.newWord);
+wordsController.showUserWithWord = (req, res) => {
+  console.log('here maybe?')
+  console.log('inside showWordsUser ->', res.locals.newWord.id);
   Word.showWordsUser({
     user_id: req.user.id,
   })

@@ -38,8 +38,8 @@ Word.userAndWord = (word) => {
 };
 
 
-Word.showWordsUser = (userid) => {
-  return db.one (
+Word.showUserWithWord = (userid) => {
+  return db.query (
     `
     SELECT words.definition, words.title
     FROM words INNER JOIN
