@@ -25,7 +25,7 @@ wordsController.create = (req, res, next) => {
 };
 
 
-wordsController.userAndWord = (req, res) => {
+wordsController.userAndWord = (req, res, next) => {
   console.log('inside userAndWord -> ', res.locals.newWord);
   Word.userAndWord({
     user_id: req.user.id,
@@ -33,35 +33,43 @@ wordsController.userAndWord = (req, res) => {
   })
     .then((newWord) => {
       res.locals.newWord = newWord;
-      console.log('.then inside userAndWord', newWord);
-
       next();
-      // res.render('words/user-dictionary')
     })
     .catch((err) => {
       res.status(500).json(err)
     })
 }
 
-
-wordsController.showUserWithWord = (req, res) => {
-  console.log('here maybe?')
-  console.log('inside showWordsUser ->', res.locals.newWord.id);
-  Word.showWordsUser({
+wordsController.index = (req, res) => {
+  console.log('please be here')
+  Word.showUserWithWords({
     user_id: req.user.id,
+
   })
-    .then(listOfWords => {
 
-      console.log('THIS', listOfWords);
-      // res.locals.newWord = newWord;
-      res.render('words/user-dictionary', {list: listOfWords});
+    .then(words => {
+      res.render('words/user', { words: words });
     })
-    .catch((err) => {
-      res.status(500).json(err)
-    })
-}
+    .catch(err => {
+      res.status(400).json(err);
+    });
+};
 
+// wordsController.showUserWithWord = (req, res) => {
+//   console.log('here maybe?')
+//   Word.showUserWithWord({
+//     user_id: req.user.id,
+//   })
+//     .then(listOfWords => {
 
+//       console.log('THIS', listOfWords);
+//       // res.locals.newWord = newWord;
+//       res.render('words/user-dictionary', {list: listOfWords});
+//     })
+//     .catch((err) => {
+//       res.status(500).json(err)
+//     })
+// }
 
 
 
@@ -74,15 +82,7 @@ wordsController.results = (req, res) => {
   })
 };
 
-wordsController.index = (req, res) => {
-  Word.findAll()
-    .then(words => {
-      res.render('words/index', { words: words });
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
-};
+
 
 wordsController.show = (req, res) => {
   Word.findById(req.params.id)

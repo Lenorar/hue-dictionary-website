@@ -1,7 +1,5 @@
-<%# views/words/index.ejs %>
 <h1>hello</h1>
 
-<!-- PAGE TO LOOK UP WORDS..'POST' -->
 
 <% include ../partials/boilerplate %>
 

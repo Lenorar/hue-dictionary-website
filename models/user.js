@@ -18,4 +18,12 @@ User.create = (user) => {
     [user.username, user.email, user.password_digest]);
 };
 
+User.findUserWords = (id) => {
+  return db.manyOrNone(`
+    SELECT * FROM words
+    WHERE user_id = $1
+  `, [id]);
+};
+
+
 module.exports = User;

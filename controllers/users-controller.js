@@ -3,6 +3,28 @@ const User = require('../models/user.js');
 
 const usersController = {};
 
+
+
+
+usersController.index = (req, res) => {
+  console.log('please be here')
+  User.findUserWords({
+    user_id: req.user.id,
+
+  })
+
+    .then(words => {
+      res.render('words/user-dictionary', { words: words });
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+};
+
+
+
+
+
 usersController.create = (req, res) => {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);

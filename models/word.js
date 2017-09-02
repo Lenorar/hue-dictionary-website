@@ -15,6 +15,9 @@ Word.findAll = () => {
 //     )
 // }
 
+
+
+
 Word.create = (words, userid) => {
   return db.one(
     `
@@ -37,8 +40,7 @@ Word.userAndWord = (word) => {
     );
 };
 
-
-Word.showUserWithWord = (userid) => {
+Word.showUserWithWords = (userid) => {
   return db.query (
     `
     SELECT words.definition, words.title
@@ -48,6 +50,16 @@ Word.showUserWithWord = (userid) => {
     `, [userid]
     );
 };
+// Word.showUserWithWords = (userid) => {
+//   return db.query (
+//     `
+//     SELECT words.definition, words.title
+//     FROM words INNER JOIN
+//     users_words ON words.id = word_id
+//     WHERE users_words.user_id=$1
+//     `, [userid]
+//     );
+// };
 
 Word.findById = (id) => {
   return db.oneOrNone(`SELECT * FROM words WHERE id = $1`, [id]);
