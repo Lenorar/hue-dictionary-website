@@ -93,7 +93,7 @@ Word.findById = (id) => {
 
 
 Word.destroy = (word) => {
-    console.log('word_id is',word)
+    console.log('id is',word)
 
     return db.none(
     `
@@ -104,4 +104,16 @@ Word.destroy = (word) => {
   );
 };
 
+
+Word.deleteFromWords = (word) => {
+    console.log('id is',word)
+
+    return db.none(
+    `
+      DELETE FROM words
+      WHERE id=$1
+    `,
+    [word]
+  );
+};
 module.exports = Word;

@@ -25,11 +25,13 @@ wordsRouter.post('/', authHelpers.loginRequired, wordsController.create, wordsCo
 
 wordsRouter.get('/:id', wordsController.show);
 
-wordsRouter.delete('/:id', wordsController.destroy);
+wordsRouter.get('/:id/edit', wordsController.edit);
+
 
 wordsRouter.put('/:id', wordsController.update);
 
-wordsRouter.get('/:id/edit', wordsController.edit);
+wordsRouter.delete('/:id', wordsController.destroyFromUserAndWords, wordsController.deleteFromWords);
+
 
 module.exports = wordsRouter;
 

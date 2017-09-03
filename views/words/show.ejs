@@ -1,12 +1,12 @@
-    <h4>
-        <%= word.title %>
-    </h4>
-    <h4>
-        <%= word.definition %>
-    </h4>
 
+<% include ../partials/boilerplate %>
+  <div class="word">
+    <h2><%= word.title %></h2>
+    <h2><%= word.definition %></h2>
 
-<a href="<%= `/word/${word.id}/edit`%>">Edit movie details</a> |
-
-<form action="<%= `/word/${word.id}?_method=DELETE` %>" method="POST">
-  <input type="submit" value="Delete" />
+    <a href="<%= `/words/${word.id}/edit`%>">edit a how to use it in a sentence</a> |
+    <form class="delete" action="/words/<%=word.id%>?_method=DELETE" method="POST">
+       <input type="submit" value="Delete"/>
+    </form>
+  </div>
+<% include ../partials/end %>

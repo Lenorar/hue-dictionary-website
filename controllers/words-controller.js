@@ -84,7 +84,6 @@ wordsController.results = (req, res) => {
 };
 
 
-
 wordsController.show = (req, res) => {
   Word.findById(req.params.id)
     .then(word => {
@@ -98,19 +97,27 @@ wordsController.show = (req, res) => {
 
 
 
-
+// wordsController.edit = (req, res) => {
+//   Word.findById(req.params.id)
+//     .then(word => {
+//       res.render('words/edit', {
+//         word:word
+//       })
+//     }).catch(err => {
+//       res.status(400).json(err);
+//     });
+// };
 
 wordsController.edit = (req, res) => {
   Word.findById(req.params.id)
     .then(word => {
       res.render('words/edit', {
-        word:word
-      })
+        word: word
+      });
     }).catch(err => {
       res.status(400).json(err);
     });
 };
-
 //have to update this
 wordsController.update = (req, res) => {
   Word.update({
@@ -124,17 +131,27 @@ wordsController.update = (req, res) => {
 };
 
 
-wordsController.destroy = (req, res, next) => {
+wordsController.destroyFromUserAndWords = (req, res, next) => {
   Word.destroy(req.params.id)
-    console.log('this has been deleted')
-    .then(() => {
-      console.log('HELLO THERE')
-      res.redirect('user/profile')
+    .then((word) => {
+      res.locals.word = word;
+      next();
     })
     .catch(err => {
       res.status(400).json(err);
     });
 };
 
+
+wordsController.deleteFromWords = (req, res) => {
+  Word.deleteFromWords(req.params.id)
+    .then(() => {
+       res.redirect(`/user/profile`)
+
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+};
 
 module.exports = wordsController;

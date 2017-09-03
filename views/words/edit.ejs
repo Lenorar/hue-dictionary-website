@@ -1,18 +1,11 @@
-<%# views/words/edit.ejs %>
 
-<% include ./partials/boilerplate %>
 
-<h1>Edit the sentence</h1>
+<% include ../partials/boilerplate %>
 
-<form action="<%= `/words/${word.id}?_method=PUT` %>" method="POST">
+<form action="/words/<%= word.id %>?_method=PUT" method="POST">
+  <input type="text" name="name" value="<%= word.title %>" />
 
-  <label for="used_in_sentence">Used in a sentence</label>
-  <input id="used_in_sentence" type="text" name="used_in_sentence" placeholder="try a new sentence that works better for you" value="<%= word.used_in_sentence %>" />
-
-  <input type="submit" value="Save changes" />
+  <input type="submit" value="Update this!" />
 </form>
 
-<a href="<%= `/words/${word.id}` %>">Cancel</a>
-
-
-<% include ./partials/end %>
+<% include ../partials/end %>

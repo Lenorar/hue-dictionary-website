@@ -13,9 +13,7 @@
     </h4>
   </div>
 
-  <form action="<%= `/words/${words.id}?_method=GET` %>">
-    <input type="submit" value="see more" />
-  </form>
+ <a href="/words/<%=words.id%>">See more</a>
 
 <% }) %>
 
