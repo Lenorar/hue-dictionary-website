@@ -89,4 +89,3 @@ Word.destroy = (id) => {
 
 
 module.exports = Word;
-

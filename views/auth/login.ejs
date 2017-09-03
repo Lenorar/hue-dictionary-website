@@ -1,14 +1,15 @@
 <%# views/auth/login.ejs %>
 <% include ../partials/boilerplate %>
 
+<div class="auth">
+  <h1>member</h1>
+  <form method="POST" action="/auth/login">
 
-<form method="POST" action="/auth/login">
+    <input name="username" type="text" placeholder="username" required />
+    <input name="password" type="password" placeholder="password" required />
+    <input type="submit" value="Log in!" />
 
-  <input name="username" type="text" placeholder="username" required />
-  <input name="password" type="password" placeholder="password" required />
-  <input type="submit" value="Log in!" />
+  </form>
 
-</form>
-
-
+</div
 <% include ../partials/end %>

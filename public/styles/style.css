@@ -79,18 +79,31 @@ nav ul li a {
 }
 
 ::placeholder {
-    color: #F2E6CB;
+  color: #F2E6CB;
+  font-family: 'PT Mono', monospace;
+  padding-left: 20px;
 }
 
 input[type="text"]:focus {
    outline: none;
 }
 
-#word-submit, .add-word {
+.auth input {
+  background-color: transparent;
+  border-style: solid 2px ;
+  border-color: #BD0FE1;
+
+
+}
+:focus {
+   outline: none;
+}
+
+#word-submit, .add-word, .auth input[type="submit"]  {
   font-family: 'PT Mono', monospace;
   background-color: transparent;
-  border:solid 2px;
-  padding: 0 20px;
+  border: solid 2px;
+  padding: 2px 20px;
   color: #FBF3E0;
   background-color: #BD0FE1
 }
@@ -157,28 +170,35 @@ p {
   padding: 2% 0 8%;
 }
 
-/*
-    <h1><%= word.title %></h1>
+/*auth page*/
+.auth {
+  color: #BD0FE1;
 
-    <h2>etymology</h2>
-    <p><%= word.etymology%></p>
+}
 
-    <h2>definition</h2>
-    <p><%= word.definition%></p>
-    console.log(word.definition)
+.auth h1 {
+  font-size: 3rem;
+  padding: 5% 0;
+}
+.auth input[type="submit"] {
+  font-size: 1rem;
+}
 
-    <h2>used in a sentence</h2>
-    <p><%= word.examples%></p>
+.auth input[type="text"], .auth input[type="email"] , .auth input[type="password"]  {
+  display: block;
+  margin: 2% 0;
+  height: 50px;
+  width: 40%;
+  font-size: 1.2rem;
 
+  font-family: 'PT Mono', monospace;
+  color: #BD0FE1;
 
-    <h2>More definition</h2>
-    <p><%= word.otherdefinitions%></p>
+}
 
-    <h2>more examples</h2>
-    <p><%=word.otherexamples%></p>
-*/
-
-
+.auth ::placeholder {
+    color: #BD0FE1;
+}
 /******************************************
 /* HELPER CLASSES
 /*******************************************/

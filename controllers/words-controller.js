@@ -48,7 +48,7 @@ wordsController.index = (req, res) => {
   })
 
     .then(words => {
-      res.render('words/user', { words: words });
+      res.render('words/user-dictionary', { words: words });
     })
     .catch(err => {
       res.status(400).json(err);
