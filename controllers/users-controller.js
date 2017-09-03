@@ -6,21 +6,20 @@ const usersController = {};
 
 
 
-usersController.index = (req, res) => {
-  console.log('please be here')
+usersController.listOfWords = (req, res, next) => {
   User.findUserWords({
-    user_id: req.user.id,
-
+    user_id: req.user.id
   })
 
-    .then(words => {
-      res.render('words/user-dictionary', { words: words });
+    .then( words => {
+      console.log('give me something')
+
+      res.render('user/profile', { word: words });
     })
     .catch(err => {
       res.status(400).json(err);
     });
 };
-
 
 
 

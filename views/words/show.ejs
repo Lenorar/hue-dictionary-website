@@ -1,18 +1,12 @@
-<%# views/words/show.ejs %>
+    <h4>
+        <%= word.title %>
+    </h4>
+    <h4>
+        <%= word.definition %>
+    </h4>
 
-<% include ./partials/boilerplate %>
 
-<h1><%= word.title %></h1>
+<a href="<%= `/word/${word.id}/edit`%>">Edit movie details</a> |
 
-<p><%= word.definition %></p>
-<p><%= word.used_in_sentence %></p>
-
-<a href="<%= `/words/${word.id}/edit`%>">Edit the sentence</a>
-
-<form action="<%= `/words/${word.id}?_method=DELETE` %>" method="POST">
+<form action="<%= `/word/${word.id}?_method=DELETE` %>" method="POST">
   <input type="submit" value="Delete" />
-</form>
-
-<a href="/words">Look up more words</a>
-
-<% include ./partials/end %>

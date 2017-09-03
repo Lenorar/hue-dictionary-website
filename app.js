@@ -39,7 +39,7 @@ app.use('/auth', authRouter);
 
 app.use('/words', wordsRouter)
 
-app.use('/words/user-profile', usersRouter)
+app.use('/user', usersRouter)
 
 app.use('/words/user-dictionary', wordsRouter)
 

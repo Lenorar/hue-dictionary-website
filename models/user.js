@@ -19,10 +19,11 @@ User.create = (user) => {
 };
 
 User.findUserWords = (id) => {
-  return db.manyOrNone(`
-    SELECT * FROM words
-    WHERE user_id = $1
-  `, [id]);
+  console.log(id.user_id)
+  return db.query(
+    `SELECT * FROM words WHERE words.user_id=$1
+    `,
+    [id.user_id]);
 };
 
 

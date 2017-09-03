@@ -8,7 +8,7 @@ const usersRouter = express.Router();
 
 
 
-usersRouter.get('/', authHelpers.loginRequired, usersController.index);
+usersRouter.get('/profile', authHelpers.loginRequired, usersController.listOfWords);
 
 
 module.exports = usersRouter;

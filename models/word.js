@@ -86,16 +86,22 @@ Word.update = (words, id) => {
   );
 };
 
+Word.findById = (id) => {
+    console.log('this is the id', id);
+    return db.oneOrNone(`SELECT * FROM words WHERE id = $1`, [id])
+}
 
-Word.destroy = (id) => {
+
+Word.destroy = (word) => {
+    console.log('word_id is',word)
+
     return db.none(
     `
-      DELETE FROM words
-      WHERE id = $1
+      DELETE FROM users_words
+      WHERE word_id=$1
     `,
-    [id]
+    [word]
   );
 };
-
 
 module.exports = Word;

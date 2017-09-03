@@ -124,10 +124,12 @@ wordsController.update = (req, res) => {
 };
 
 
-wordsController.destroy = (req, res) => {
+wordsController.destroy = (req, res, next) => {
   Word.destroy(req.params.id)
+    console.log('this has been deleted')
     .then(() => {
-      res.redirect('/words')
+      console.log('HELLO THERE')
+      res.redirect('user/profile')
     })
     .catch(err => {
       res.status(400).json(err);
