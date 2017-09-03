@@ -4,12 +4,16 @@
 <% include ../partials/boilerplate %>
 
 
-<% words.forEach(words => { %>
+<% word.forEach(words => { %>
   <div class="word">
     <h4>
         <%= words.title %>
+    </h4>
+    <h4>
+        <%= words.definition %>
     </h4>
   </div>
 <% }) %>
 
 <% include ../partials/end %>
+

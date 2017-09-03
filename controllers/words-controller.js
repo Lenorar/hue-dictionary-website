@@ -43,12 +43,13 @@ wordsController.userAndWord = (req, res, next) => {
 wordsController.index = (req, res) => {
   console.log('please be here')
   Word.showUserWithWords({
-    user_id: req.user.id,
-
+    user_id: req.user.id
   })
 
-    .then(words => {
-      res.render('words/user-dictionary', { words: words });
+    .then( words => {
+      console.log('give me something')
+
+      res.render('index', { word: words });
     })
     .catch(err => {
       res.status(400).json(err);

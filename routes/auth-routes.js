@@ -22,7 +22,6 @@ authRouter.post('/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/auth/login',
     failureFlash: true,
-
   })
 );
 

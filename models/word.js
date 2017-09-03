@@ -11,7 +11,7 @@ Word.findAll = () => {
 // Word.join = (word) => {
 //   return db.query(
 //     `SELECT * FROM users INNER JOIN
-//     words ON users.id = word.user_id`
+//     words ON users.id = words.user_id`
 //     )
 // }
 
@@ -40,30 +40,40 @@ Word.userAndWord = (word) => {
     );
 };
 
-Word.showUserWithWords = (userid) => {
-  return db.query (
-    `
-    SELECT words.definition, words.title
-    FROM words INNER JOIN
-    users_words ON words.id = word_id
-    WHERE users_words.user_id=$1
-    `, [userid]
-    );
-};
 // Word.showUserWithWords = (userid) => {
-//   return db.query (
+//   return db.manyOrNone (
 //     `
 //     SELECT words.definition, words.title
 //     FROM words INNER JOIN
 //     users_words ON words.id = word_id
 //     WHERE users_words.user_id=$1
-//     `, [userid]
+//     RETURNING *
+//     `,
+//      [userid]
 //     );
 // };
 
-Word.findById = (id) => {
-  return db.oneOrNone(`SELECT * FROM words WHERE id = $1`, [id]);
-}
+
+
+
+
+
+
+Word.showUserWithWords = (userid) => {
+  return db.manyOrNone(
+    `
+    SELECT * FROM words
+    `,
+    [userid]
+    );
+};
+
+
+
+
+// Word.showUserWithWords = (id) => {
+//   return db.oneOrNone(`SELECT * FROM words WHERE words.user_id = $1`, [id]);
+// }
 
 Word.update = (words, id) => {
   return db.none(

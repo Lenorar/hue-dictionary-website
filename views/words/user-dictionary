@@ -4,10 +4,10 @@
 <% include ../partials/boilerplate %>
 
 
-<% words.forEach(words => { %>
+<% word.forEach(words => { %>
   <div class="word">
     <h4>
-        <%= words.title %>
+        <%= word.title %>
     </h4>
   </div>
 <% }) %>
