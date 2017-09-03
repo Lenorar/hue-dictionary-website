@@ -1,3 +1,198 @@
 html {
-  background: beige;
+  background: #FBF3E0;
 }
+
+
+/*font-family: 'PT Serif', serif;
+font-family: 'PT Mono', monospace;*/
+
+
+body {
+max-width: 1200px;
+margin: auto;
+font-family: 'PT Mono', monospace;
+color: #4A4A4A;
+letter-spacing: .3rem;
+  padding: 5%;
+
+}
+
+nav {
+    font-weight: bold;
+    font-size: 1.3rem;
+    height: 100px;
+}
+
+nav header {
+  display: inline;
+}
+nav header a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+nav header a:hover, nav ul li a:hover {
+  color: #BD0FE1 ;
+}
+
+
+nav ul li{
+  font-size: .8rem;
+  display: inline;
+  float: right;
+  padding: 0 2%;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #4A4A4A;
+
+}
+
+#look-up-word {
+  height: 100vh;
+  padding: 5%;
+  padding-top: 30vh;
+  text-align: left;
+}
+
+#look-up-word label, #word-submit {
+  font-size: 1rem;
+  font-weight: regular;
+
+}
+
+#word-retrieval {
+  font-family: 'PT Serif', serif;
+  font-size: 4rem;
+  background-color: transparent;
+  border-style: none;
+  border-left:  solid 5px;
+  border-color: #BD0FE1;
+  padding-left: 10px;
+}
+
+#word-retrieval input[type="text"] {
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+}
+
+::placeholder {
+    color: #F2E6CB;
+}
+
+input[type="text"]:focus {
+   outline: none;
+}
+
+#word-submit, .add-word {
+  font-family: 'PT Mono', monospace;
+  background-color: transparent;
+  border:solid 2px;
+  padding: 0 20px;
+  color: #FBF3E0;
+  background-color: #BD0FE1
+}
+
+
+/*results page*/
+
+h1 {
+font-family: 'PT Serif', serif;
+font-size: 5rem;
+font-weight: bold;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 5% 0 2%;
+}
+
+p {
+  letter-spacing: 1px;
+}
+
+
+
+.add-word {
+  font-size: 1rem;
+  float:right;
+  margin-right: 5vw;
+
+}
+
+.word-results {
+  margin: auto;
+  margin-top: 10vh;
+
+}
+
+.etymology-container{
+  width: 50%;
+  padding: 5% 0 2%;
+}
+.container {
+  padding: 4% 5% 0 0 ;
+  display: inline-block;
+  flex: block;
+  width: 40%;
+  vertical-align: top;
+}
+
+.definition {
+  height: 200px;
+
+}
+
+.example {
+  height: 200px;
+}
+.container h2{
+  padding: 5% 0 2%;
+}
+
+.container p {
+  padding: 2% 0 8%;
+}
+
+/*
+    <h1><%= word.title %></h1>
+
+    <h2>etymology</h2>
+    <p><%= word.etymology%></p>
+
+    <h2>definition</h2>
+    <p><%= word.definition%></p>
+    console.log(word.definition)
+
+    <h2>used in a sentence</h2>
+    <p><%= word.examples%></p>
+
+
+    <h2>More definition</h2>
+    <p><%= word.otherdefinitions%></p>
+
+    <h2>more examples</h2>
+    <p><%=word.otherexamples%></p>
+*/
+
+
+/******************************************
+/* HELPER CLASSES
+/*******************************************/
+/* Clearfix */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.is-hidden {
+  display: none; }
+
+.is-visible {
+  display: block; }

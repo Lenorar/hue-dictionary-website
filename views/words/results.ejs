@@ -2,42 +2,64 @@
 
 <% include ../partials/boilerplate %>
 
-    <h1><%= word.title %></h1>
-
-    <h2>etymology</h2>
-    <p><%= word.etymology%></p>
-
-    <h1>definition</h1>
-    <p><%= word.definition%></p>
-    console.log(word.definition)
-
-    <h2>used in a sentence</h2>
-    <p><%= word.examples%></p>
-
-
-    <h2>More definition</h2>
-    <p><%= word.otherdefinitions%></p>
-
-    <h2>more examples</h2>
-    <p><%=word.otherexamples%></p>
 
 
 <!-- here is where the user can add words to the library and user into the same table -->
-<form method="POST" action="/words/user-profile">
 
-  <input type="hidden" name="title" value="<%= word.title %>">
-  <input type="hidden" name="etymology" value="<%= word.etymology %>">
-  <input type="hidden" name="definition" value="<%= word.definition %>">
+  <div class="word-results clearfix">
+    <h1><%= word.title %></h1>
+      <form method="POST" action="/words/user-profile">
 
-  <input type="hidden" name="examples" value="<%= word.examples %>">
+        <input type="hidden" name="title" value="<%= word.title %>">
+        <input type="hidden" name="etymology" value="<%= word.etymology %>">
+        <input type="hidden" name="definition" value="<%= word.definition %>">
 
-  <input type="hidden" name="otherdefinitions" value="<%= word.otherdefinitions %>">
+        <input type="hidden" name="examples" value="<%= word.examples %>">
 
-  <input type="hidden" name="moreexamples" value="<%= word.otherexamples %>">
+        <input type="hidden" name="otherdefinitions" value="<%= word.otherdefinitions %>">
 
-  <input type="submit">
+        <input type="hidden" name="moreexamples" value="<%= word.otherexamples %>">
 
-</form>
+        <input class="add-word" type="submit" value="add to user_dictionary">
+
+      </form>
+    <div class="etymology-container">
+
+      <h2>etymology</h2>
+      <p><%= word.etymology%></p>
+    </div>
+
+    <div class="container">
+
+      <div class="definition">
+        <h2>definition</h2>
+        <p><%= word.definition%></p>
+      </div>
+      <div class="definition">
+        <h2>another definition</h2>
+        <p><%= word.otherdefinitions%></p>
+      </div>
+
+
+    </div>
+
+
+    <div class="container">
+      <div class="example">
+        <h2>used in a sentence</h2>
+        <p><%= word.examples%></p>
+      </div>
+
+
+      <div class="example">
+        <h2>used in sentence</h2>
+        <p><%=word.otherexamples%></p>
+      </div>
+    </div>
+  </div>
+
+
+
 
 <% include ../partials/end %>
 

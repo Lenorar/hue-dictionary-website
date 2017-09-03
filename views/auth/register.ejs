@@ -1,4 +1,5 @@
 <%# views/auth/register.ejs %>
+<% include ../partials/boilerplate %>
 
 <form method="POST" action="/auth/register">
   <input name="username" type="text" placeholder="username" required />
@@ -6,3 +7,4 @@
   <input name="password" type="password" placeholder="password" required />
   <input type="submit" value="Register!" />
 </form>
+<% include ../partials/end %>
