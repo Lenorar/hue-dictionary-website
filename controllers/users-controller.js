@@ -3,17 +3,12 @@ const User = require('../models/user.js');
 
 const usersController = {};
 
-
-
-
+//this adds lists all the words associated to user logded in
 usersController.listOfWords = (req, res, next) => {
   User.findUserWords({
     user_id: req.user.id
   })
-
     .then( words => {
-      console.log('give me something')
-
       res.render('user/profile', { word: words });
     })
     .catch(err => {
@@ -22,8 +17,7 @@ usersController.listOfWords = (req, res, next) => {
 };
 
 
-
-
+//this makes a secure user
 usersController.create = (req, res) => {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);

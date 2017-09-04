@@ -5,7 +5,6 @@ const wordsController = {};
 
 //this adds the searched word to words table
 wordsController.create = (req, res, next) => {
-  console.log('IM HERE --> ');
   Word.create({
     title: req.body.title,
     etymology: req.body.etymology,
@@ -13,25 +12,24 @@ wordsController.create = (req, res, next) => {
     examples: req.body.examples,
     otherdefinitions: req.body.otherdefinitions,
     otherexamples: req.body.otherexamples
-}, req.user.id)
-.then(newWord => {
-      console.log('this is the word id', newWord.id);
-      res.locals.newWord = newWord;
-      next();
-  }).catch(err => {
-    console.log(err);
-    res.status(400).json(err);
-  })
+  }, req.user.id)
+  .then(newWord => {
+        console.log('this is the word id', newWord.id);
+        res.locals.newWord = newWord;
+        next();
+    }).catch(err => {
+        console.log(err);
+        res.status(400).json(err);
+    })
 };
 
-
+//this links user and word in users_words_
 wordsController.userAndWord = (req, res, next) => {
-  console.log('inside userAndWord -> ', res.locals.newWord);
+  console.log(res.locals.newWord);
   Word.userAndWord({
     user_id: req.user.id,
     word_id: res.locals.newWord.id
-  })
-    .then((newWord) => {
+  }).then((newWord) => {
       res.locals.newWord = newWord;
       next();
     })
@@ -41,62 +39,39 @@ wordsController.userAndWord = (req, res, next) => {
 }
 
 wordsController.index = (req, res) => {
-  console.log('please be here')
   Word.showUserWithWords({
     user_id: req.user.id
   })
-
     .then( words => {
-      console.log('give me something')
-
-      res.render('index', { word: words });
+      res.render('index', {
+        word: words
+      });
     })
     .catch(err => {
       res.status(400).json(err);
     });
 };
 
-// wordsController.showUserWithWord = (req, res) => {
-//   console.log('here maybe?')
-//   Word.showUserWithWord({
-//     user_id: req.user.id,
-//   })
-//     .then(listOfWords => {
-
-//       console.log('THIS', listOfWords);
-//       // res.locals.newWord = newWord;
-//       res.render('words/user-dictionary', {list: listOfWords});
-//     })
-//     .catch((err) => {
-//       res.status(500).json(err)
-//     })
-// }
-
-
-
-
-
-
+//this pulls from the api
 wordsController.results = (req, res) => {
   res.render('words/results', {
     word: res.locals.word
   })
 };
 
-
+//this shows the individual word
 wordsController.show = (req, res) => {
   Word.findById(req.params.id)
     .then(word => {
       res.render('words/show', {
         word: word
-      })
+      });
     }).catch(err => {
       res.status(400).json(err);
     });
 };
 
-
-
+//allows user to edit
 wordsController.edit = (req, res) => {
     console.log(req.params.id)
     Word.findById(req.params.id)
@@ -110,10 +85,9 @@ wordsController.edit = (req, res) => {
       .catch(err => {
         res.status(400).json(err)
     })
-}
+};
 
-
-
+//the edit gets updated on id page
 wordsController.update = (req, res) => {
   Word.update({
       examples: req.body.examples
@@ -127,7 +101,7 @@ wordsController.update = (req, res) => {
     });
 };
 
-
+//destroys from users_words
 wordsController.destroyFromUserAndWords = (req, res, next) => {
   Word.destroy(req.params.id)
     .then((word) => {
@@ -139,12 +113,11 @@ wordsController.destroyFromUserAndWords = (req, res, next) => {
     });
 };
 
-
+//deletes from words
 wordsController.deleteFromWords = (req, res) => {
   Word.deleteFromWords(req.params.id)
     .then(() => {
        res.redirect(`/user/profile`)
-
     })
     .catch(err => {
       res.status(400).json(err);

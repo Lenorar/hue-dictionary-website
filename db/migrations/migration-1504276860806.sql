@@ -29,7 +29,3 @@ CREATE TABLE IF NOT EXISTS users_words (
   word_id integer REFERENCES words(id)
 );
 
-
--- this will be used for users to add words to their database in the model sections.
-
--- tomorrow morning comment out select from innner join try the create onces its been created then join table.

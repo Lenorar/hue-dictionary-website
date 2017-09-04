@@ -1,22 +1,18 @@
 
 <% include ../partials/boilerplate %>
 
-
-
-
   <div>
-        <form  action="/words/<%=word.id%>?_method=DELETE" method="POST">
-           <input id="delete" type="submit" value="Delete"/>
-        </form>
+    <form  action="/words/<%=word.id%>?_method=DELETE" method="POST">
+      <input id="delete" type="submit" value="Delete"/>
+    </form>
     <h1 class="word-title"><%= word.title%></h1>
-    <div class="etymology-container">
 
+    <div class="etymology-container">
       <h2>etymology</h2>
       <p><%= word.etymology%></p>
     </div>
 
     <div class="container">
-
       <div class="definition">
         <h2>definition</h2>
         <p><%= word.definition%></p>
@@ -25,29 +21,21 @@
         <h2>another definition</h2>
         <p><%= word.otherdefinitions%></p>
       </div>
-
-
     </div>
-
 
     <div class="container">
       <div class="example">
         <h2>used in a sentence</h2>
         <p><%= word.examples%></p>
         <button><a href="<%= `/words/${word.id}/edit`%>">edit sentence</a></button>
-
       </div>
-
 
       <div class="example">
         <h2>used in sentence</h2>
         <p><%=word.otherexamples%></p>
-
       </div>
     </div>
-
-
-
-
   </div>
+
+
 <% include ../partials/end %>

@@ -4,9 +4,9 @@ function comparePass(userPassword, databasePassword) {
   return bcrypt.compareSync(userPassword, databasePassword);
 }
 
-function loginRedirect(req, res, next) {
-  if (req.user) return res.redirect ('/');
-  return next();
+//this is not working properly. seems to be sending to the index. But why why?
+function loginRedirect(req, res) {
+  if (req.user) return res.redirect('/user/profile');
 }
 
 function loginRequired(req, res, next) {

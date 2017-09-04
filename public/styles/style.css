@@ -2,10 +2,6 @@ html {
   background: #FEFFF9;
 }
 
-/*FBF3E0*/
-/*font-family: 'PT Serif', serif;
-font-family: 'PT Mono', monospace;*/
-
 
 body {
 max-width: 1200px;
@@ -47,6 +43,7 @@ nav {
 nav header {
   display: inline;
 }
+
 nav header a {
   text-decoration: none;
   color: #4A4A4A;
@@ -55,7 +52,6 @@ nav header a {
 nav header a:hover, nav ul li a:hover {
   color: #33f396 ;
 }
-
 
 nav ul li{
   font-size: .8rem;
@@ -67,7 +63,6 @@ nav ul li{
 nav ul li a {
   text-decoration: none;
   color: #4A4A4A;
-
 }
 
 #look-up-word {
@@ -81,7 +76,6 @@ nav ul li a {
 #look-up-word label, #word-submit, , button {
   font-size: 1rem;
   font-weight: regular;
-
 }
 
 #word-retrieval {
@@ -115,9 +109,8 @@ input[type="text"]:focus {
   background-color: transparent;
   border-style: solid 2px ;
   border-color: #33f396;
-
-
 }
+
 :focus {
    outline: none;
 }
@@ -143,20 +136,16 @@ button a{
   margin: 2% 0 ;
 }
 edit-submit
-/*results page*/
-
 
 .add-word {
   font-size: 1rem;
   float:right;
   margin-right: 5vw;
-
 }
 
 .word-results {
   margin: auto;
   margin-top: 10vh;
-
 }
 
 .etymology-container{
@@ -185,15 +174,12 @@ edit-submit
 /*auth page*/
 .auth {
   color: #33f396;
-
 }
 
 .auth h1 {
   font-size: 3rem;
   padding: 5% 0;
 }
-
-
 
 .auth input[type="text"],  input[type="email"] , .auth input[type="password"] {
   display: block;
@@ -214,22 +200,12 @@ edit-submit
   font-family: 'PT Mono', monospace;
   color: #33f396;
 }
-/*redundant*/
-.edit-blah #edit {
-  border: 2px solid #33f396;
-  background-color: transparent;
-}
-.edit-blah #edit, .auth ::placeholder {
-    color: #EAEBE5;
-}
-
-
-
 
 .wordInList h1 {
   font-size: 1.2rem;
   font-family: 'PT Mono', monospace;
 }
+
 .row {
   margin: 50px;
   border: 2px dotted #33f396;
@@ -242,9 +218,8 @@ edit-submit
 .button {
   text-align: right;
 }
-/******************************************
-/* HELPER CLASSES
-/*******************************************/
+
+
 /* Clearfix */
 .clearfix:before,
 .clearfix:after {

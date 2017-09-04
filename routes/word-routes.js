@@ -5,19 +5,12 @@ const wordsRouter = express.Router();
 const authHelpers = require('../services/auth/auth-helpers');
 
 
-// wordsRouter.get('/', wordsController.index);
-
-// wordsRouter.get('/', (req, res) => {
-//   res.render('index');
-// });
 
 wordsRouter.post('/results', wordHelper.getWord, wordsController.results);
-
 
 wordsRouter.post('/', authHelpers.loginRequired, wordsController.create, wordsController.userAndWord, wordsController.index);
 
 wordsRouter.get('/:id', wordsController.show);
-
 
 wordsRouter.get('/:id/edit', wordsController.edit);
 

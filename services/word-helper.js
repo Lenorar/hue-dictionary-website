@@ -19,8 +19,6 @@ function getWord(req, res, next){
 
       let information = data.results[0].lexicalEntries[0].entries[0];
 
-      // if (data.results[0].id) === 'null');
-
       word.etymology = information.etymologies;
 
       word.definition = information.senses[0].definitions;
@@ -36,10 +34,7 @@ function getWord(req, res, next){
       console.log(res.locals.word);
       next();
     }).catch((err) => {
-      console.log(err);
-      res.status(500).json(err)
-
-      next();
+      res.render('index');
     });
 }
 

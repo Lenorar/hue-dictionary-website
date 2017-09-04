@@ -1,15 +1,9 @@
-// models/word.js
-
+//dependences
 const db = require('../db/config');
-
 const Word = {};
 
-Word.findAll = () => {
-  return db.query('SELECT * FROM words');
-};
 
-
-
+//this adds a new word to the words table
 Word.create = (words, userid) => {
   return db.one(
     `
@@ -22,6 +16,7 @@ Word.create = (words, userid) => {
 };
 
 
+//this inserts user id with word id to the 3rd table users_words
 Word.userAndWord = (word) => {
   return db.query (
     `
@@ -34,6 +29,7 @@ Word.userAndWord = (word) => {
 };
 
 
+//this selects words associated to user
 Word.showUserWithWords = (userid) => {
   return db.manyOrNone(
     `
@@ -42,12 +38,18 @@ Word.showUserWithWords = (userid) => {
     [userid]
     );
 };
+
+
 Word.findById = (id) => {
-    console.log('this is the id', id);
-    return db.oneOrNone(`SELECT * FROM words WHERE id = $1`, [id])
-}
+    console.log(id);
+    return db.oneOrNone(
+      `SELECT * FROM words
+      WHERE id = $1`,
+      [id]);
+};
 
 
+//this updates the examples or a work
 Word.update = (word, id) => {
   console.log('this is the examples', word.examples);
   return db.none(
@@ -60,8 +62,7 @@ Word.update = (word, id) => {
   );
 };
 
-
-
+//this deletes the word from users_words
 Word.destroy = (word) => {
     console.log('id is',word)
 
@@ -75,6 +76,7 @@ Word.destroy = (word) => {
 };
 
 
+//this deletes the word from the words table
 Word.deleteFromWords = (word) => {
     console.log('id is',word)
 
@@ -86,4 +88,5 @@ Word.deleteFromWords = (word) => {
     [word]
   );
 };
+
 module.exports = Word;
