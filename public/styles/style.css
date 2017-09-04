@@ -1,5 +1,5 @@
 html {
-  background: #FFF7F9;
+  background: #FEFFF9;
 }
 
 /*FBF3E0*/
@@ -102,7 +102,7 @@ nav ul li a {
 }
 
 ::placeholder {
-  color: #CFC8CA;
+  color: #EAEBE5;
   font-family: 'PT Mono', monospace;
   padding-left: 20px;
 }
@@ -126,14 +126,16 @@ input[type="submit"], button{
   font-family: 'PT Mono', monospace;
   background-color: transparent;
   border: solid 2px;
-  padding: 2px 20px;
-  color: #FFF7F9;
+  padding: 2px 30px;
+  height: 40px;
+  font-size: 1rem;
+  color: #FEFFF9;
   background-color: #33f396
 }
 
 button a{
     text-decoration: none;
-    color:#FFF7F9;
+    color:#FEFFF9;
 
 }
 
@@ -218,7 +220,7 @@ edit-submit
   background-color: transparent;
 }
 .edit-blah #edit, .auth ::placeholder {
-    color: #33f396;
+    color: #EAEBE5;
 }
 
 

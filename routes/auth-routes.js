@@ -1,4 +1,4 @@
-
+//dependencies
 const express = require('express');
 const authRouter = express.Router();
 const passport = require('../services/auth/local');
@@ -12,9 +12,6 @@ authRouter.get('/login', (req, res) => {
 authRouter.get('/register', (req, res) => {
   res.render('auth/register');
 });
-
-// create a protected route
-//authRouter.get('/library', authHelpers.loginRedirect, usersController.library);
 
 authRouter.post('/register', usersController.create);
 

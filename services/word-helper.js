@@ -12,20 +12,9 @@ function getWord(req, res, next){
     }
   })
   .then((oxfordDictionaryRes) => {
-    // console.log(oxfordDictionaryRes);
       return oxfordDictionaryRes.json();
     }).then((data) => {
-      // console.log('word', data.results[0].id);
-      // console.log('etymologies', data.results[0].lexicalEntries[0].entries[0].etymologies)
-      // console.log('definition', data.results[0].lexicalEntries[0].entries[0].senses[0].definitions)
-      // console.log('examples/used in a sentence', data.results[0].lexicalEntries[0].entries[0].senses[0].examples)
-      // console.log('other definitions', data.results[0].lexicalEntries[0].entries[0].senses[0].subsenses[0].definitions)
-      // console.log('other examples', data.results[0].lexicalEntries[0].entries[0].senses[0].subsenses[0].examples)
-
-      // res.locals.word = data;
-
       let word = {};
-
       word.title = data.results[0].id;
 
       let information = data.results[0].lexicalEntries[0].entries[0];
@@ -44,8 +33,7 @@ function getWord(req, res, next){
 
       res.locals.word = word;
 
-      console.log(res.locals.word)
-
+      console.log(res.locals.word);
       next();
     }).catch((err) => {
       console.log(err);

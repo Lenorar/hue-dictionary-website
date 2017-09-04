@@ -1,3 +1,4 @@
+//dependencies
 require('dotenv').config();
 const express = require('express');
 const app = express();
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//index route
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -43,6 +45,7 @@ app.use('/user', usersRouter)
 
 app.use('/words/user-dictionary', wordsRouter)
 
+//if all fails
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`App is up and running. Listening on port ${PORT}`);
