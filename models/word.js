@@ -81,11 +81,11 @@ Word.update = (word, id) => {
   return db.one(
     `
       UPDATE words SET
-      examples = $1
-      WHERE id = $2
+
+      WHERE id = $3
       RETURNING *
     `,
-    [word.examples, id]
+    [ id]
   );
 };
 

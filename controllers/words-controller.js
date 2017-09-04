@@ -109,21 +109,27 @@ wordsController.show = (req, res) => {
 // };
 
 wordsController.edit = (req, res) => {
+  console.log("edit controller");
   Word.findById(req.params.id)
-    .then(word => {
+    .then(editWord => {
+      res.locals.editWord = editWord;
+      console.log(editWord);
       res.render('words/edit', {
-        word: word
+        editWord: editWord
       });
     }).catch(err => {
       res.status(400).json(err);
     });
 };
+
 //have to update this
 wordsController.update = (req, res) => {
-    console.log('examples!' , req.body.examples);
+    console.log('id!' , req.params.id);
+    console.log('examples!' , res.params.title);
 
   Word.update({
-    examples: req.body.examples
+    examples: req.body.examples,
+    title: req.body.title
   }, req.params.id)
   .then(() => {
     res.redirect(`/words/${req.params.id}`)

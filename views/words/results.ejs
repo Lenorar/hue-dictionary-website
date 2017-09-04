@@ -7,7 +7,7 @@
 <!-- here is where the user can add words to the library and user into the same table -->
 
   <div class="word-results clearfix">
-    <h1><%= word.title %></h1>
+    <h1  class="word-title"><%= word.title %></h1>
       <form method="POST" action="/words/user-dictionary">
 
         <input type="hidden" name="title" value="<%= word.title %>">

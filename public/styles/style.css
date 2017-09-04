@@ -115,22 +115,16 @@ button a{
 }
 
 
-
-
 edit-submit
 /*results page*/
 
-h1 {
-font-family: 'PT Serif', serif;
-font-size: 5rem;
-font-weight: bold;
-}
 
-h2 {
+
+/*h2 {
   font-size: 1.3rem;
   font-weight: bold;
   padding: 5% 0 2%;
-}
+}*/
 
 p {
   letter-spacing: 1px;
@@ -223,15 +217,25 @@ input[type="submit"]{
 
 
 
-
+h1{
+font-family: 'PT Serif', serif;
+font-size: 5rem;
+font-weight: bold;
+}
 
 
 /*word in list*/
 
-.wordInList h2 {
+ h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 5% 0 2%;
   padding: 0;
 }
-
+.wordInList h1 {
+  font-size: 1.2rem;
+  font-family: 'PT Mono', monospace;
+}
 .row {
   margin: 50px;
   border: 2px dotted #BD0FE1;

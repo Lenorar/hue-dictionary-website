@@ -4,10 +4,22 @@
 
 <% include ../partials/boilerplate %>
 
-<form class="edit-blah" action="/words/<%= word.id %>?_method=PUT" method="POST">
-  <input id="edit" type="text" name="name" value="<%= word.examples %>" />
 
-  <input class="edit-submit" type="submit" value="edit" />
+
+<form action="<%= `/words/${editWord.id}?_method=PUT` %>" method="POST">
+  <label for="title">edit the sentence</label>
+  <input id="edit" type="text" name="name" value="<%= editWord.examples %>" />
+
+
+    <br />
+
+  <label for="title">word</label>
+  <input id="title" type="text" name="word" value="<%= editWord.title %>" />
+
+  <input type="submit" value="Save changes" />
 </form>
+<a href="<%= `/words/${editWord.id}` %>">Cancel</a>
 
 <% include ../partials/end %>
+
+
