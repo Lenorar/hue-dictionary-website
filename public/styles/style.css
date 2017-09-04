@@ -1,5 +1,7 @@
 html {
   background: #FEFFF9;
+  max-width: 1200px;
+  margin: auto;
 }
 
 
@@ -126,6 +128,13 @@ input[type="submit"], button{
   background-color: #33f396
 }
 
+
+input[type="submit"], .add-word {
+  float:right;
+}
+
+
+
 button a{
     text-decoration: none;
     color:#FEFFF9;
@@ -139,9 +148,10 @@ edit-submit
 
 .add-word {
   font-size: 1rem;
-  float:right;
-  margin-right: 5vw;
 }
+
+
+.
 
 .word-results {
   margin: auto;
