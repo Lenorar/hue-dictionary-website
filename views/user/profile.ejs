@@ -4,16 +4,26 @@
 
 
 <% word.forEach(words => { %>
-  <div class="word">
-    <h4>
-        <%= words.title %>
-    </h4>
-    <h4>
-        <%= words.definition %>
-    </h4>
+  <div class="wordInList row top-xs">
+    <div class="word col-xs">
+      <h2>
+          <%= words.title %>
+      </h2>
+    </div>
+    <div class="col-xs">
+
+      <p>
+          <%= words.definition %>
+      </p>
+    </div>
+    <div class="col-xs button">
+      <button><a href="/words/<%=words.id%>">See more</a></button>
+    </div>
+
+
   </div>
 
- <a href="/words/<%=words.id%>">See more</a>
+
 
 <% }) %>
 

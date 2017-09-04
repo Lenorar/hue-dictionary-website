@@ -22,12 +22,13 @@ Word.create = (words, userid) => {
   return db.one(
     `
       INSERT INTO words
-      (title, etymology, definition, user_id)
-      VALUES ($1, $2, $3, $4) RETURNING *
+      (title, etymology, definition, examples, otherdefinitions, otherexamples, user_id)
+      VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *
     `,
-    [words.title, words.etymology, words.definition, userid]
+    [words.title, words.etymology, words.definition, words.examples, words.otherdefinitions, words.otherdefinitions, userid]
   );
 };
+
 
 Word.userAndWord = (word) => {
   return db.query (
@@ -75,14 +76,16 @@ Word.showUserWithWords = (userid) => {
 //   return db.oneOrNone(`SELECT * FROM words WHERE words.user_id = $1`, [id]);
 // }
 
-Word.update = (words, id) => {
-  return db.none(
+Word.update = (word, id) => {
+  console.log(word);
+  return db.one(
     `
       UPDATE words SET
-      used_in_sentence = $1
+      examples = $1
       WHERE id = $2
+      RETURNING *
     `,
-    [words.used_in_sentence, id]
+    [word.examples, id]
   );
 };
 

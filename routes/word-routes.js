@@ -25,8 +25,8 @@ wordsRouter.post('/', authHelpers.loginRequired, wordsController.create, wordsCo
 
 wordsRouter.get('/:id', wordsController.show);
 
-wordsRouter.get('/:id/edit', wordsController.edit);
 
+wordsRouter.get('/:id/edit', wordsController.edit);
 
 wordsRouter.put('/:id', wordsController.update);
 

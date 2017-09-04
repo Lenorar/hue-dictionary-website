@@ -56,7 +56,7 @@ nav ul li a {
   text-align: left;
 }
 
-#look-up-word label, #word-submit {
+#look-up-word label, #word-submit, , button {
   font-size: 1rem;
   font-weight: regular;
 
@@ -99,7 +99,7 @@ input[type="text"]:focus {
    outline: none;
 }
 
-#word-submit, .add-word, .auth input[type="submit"]  {
+#word-submit, .add-word, .auth input[type="submit"], button{
   font-family: 'PT Mono', monospace;
   background-color: transparent;
   border: solid 2px;
@@ -108,7 +108,16 @@ input[type="text"]:focus {
   background-color: #BD0FE1
 }
 
+button a{
+    text-decoration: none;
+    color:#FBF3E0;
 
+}
+
+
+
+
+edit-submit
 /*results page*/
 
 h1 {
@@ -180,24 +189,60 @@ p {
   font-size: 3rem;
   padding: 5% 0;
 }
-.auth input[type="submit"] {
+input[type="submit"]{
   font-size: 1rem;
 }
 
-.auth input[type="text"], .auth input[type="email"] , .auth input[type="password"]  {
+.auth input[type="text"],  input[type="email"] , .auth input[type="password"] {
   display: block;
   margin: 2% 0;
   height: 50px;
   width: 40%;
   font-size: 1.2rem;
-
   font-family: 'PT Mono', monospace;
   color: #BD0FE1;
-
 }
 
-.auth ::placeholder {
+.edit-blah #edit, .auth input[type="text"],  input[type="email"] , .auth input[type="password"] {
+  display: block;
+  margin: 2% 0;
+  height: 50px;
+  width: 40%;
+  font-size: 1.2rem;
+  font-family: 'PT Mono', monospace;
+  color: #BD0FE1;
+}
+/*redundant*/
+.edit-blah #edit {
+  border: 2px solid #BD0FE1;
+  background-color: transparent;
+}
+.edit-blah #edit, .auth ::placeholder {
     color: #BD0FE1;
+}
+
+
+
+
+
+
+/*word in list*/
+
+.wordInList h2 {
+  padding: 0;
+}
+
+.row {
+  margin: 50px;
+  border: 2px dotted #BD0FE1;
+}
+
+.col-xs {
+  margin: 4%;
+}
+
+.button {
+  text-align: right;
 }
 /******************************************
 /* HELPER CLASSES

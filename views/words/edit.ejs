@@ -1,11 +1,13 @@
 
 
+
+
 <% include ../partials/boilerplate %>
 
-<form action="/words/<%= word.id %>?_method=PUT" method="POST">
-  <input type="text" name="name" value="<%= word.title %>" />
+<form class="edit-blah" action="/words/<%= word.id %>?_method=PUT" method="POST">
+  <input id="edit" type="text" name="name" value="<%= word.examples %>" />
 
-  <input type="submit" value="Update this!" />
+  <input class="edit-submit" type="submit" value="edit" />
 </form>
 
 <% include ../partials/end %>

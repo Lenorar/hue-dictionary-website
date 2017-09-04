@@ -9,10 +9,10 @@ wordsController.create = (req, res, next) => {
   Word.create({
     title: req.body.title,
     etymology: req.body.etymology,
-    definition: req.body.definition
-    // examples: req.body.examples,
-    // otherdefinitions: req.body.otherdefinitions,
-    // otherexamples: req.body.otherexamples,
+    definition: req.body.definition,
+    examples: req.body.examples,
+    otherdefinitions: req.body.otherdefinitions,
+    otherexamples: req.body.otherexamples
 }, req.user.id)
 .then(newWord => {
       console.log('this is the word id', newWord.id);
@@ -120,8 +120,10 @@ wordsController.edit = (req, res) => {
 };
 //have to update this
 wordsController.update = (req, res) => {
+    console.log('examples!' , req.body.examples);
+
   Word.update({
-    used_in_sentence: req.body.used_in_sentence
+    examples: req.body.examples
   }, req.params.id)
   .then(() => {
     res.redirect(`/words/${req.params.id}`)
