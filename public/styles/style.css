@@ -1,8 +1,8 @@
 html {
-  background: #FBF3E0;
+  background: #FFF7F9;
 }
 
-
+/*FBF3E0*/
 /*font-family: 'PT Serif', serif;
 font-family: 'PT Mono', monospace;*/
 
@@ -12,9 +12,30 @@ max-width: 1200px;
 margin: auto;
 font-family: 'PT Mono', monospace;
 color: #4A4A4A;
-letter-spacing: .3rem;
-  padding: 5%;
+padding: 5%;
+}
 
+h1, h2 {
+  letter-spacing: .3rem;
+}
+
+h1{
+font-family: 'PT Serif', serif;
+font-size: 5rem;
+font-weight: bold;
+}
+
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 5% 0 2%;
+  padding: 0;
+}
+
+p {
+  padding: 2% 0 8%;
+  line-height: 20px;
 }
 
 nav {
@@ -32,7 +53,7 @@ nav header a {
 }
 
 nav header a:hover, nav ul li a:hover {
-  color: #BD0FE1 ;
+  color: #33f396 ;
 }
 
 
@@ -51,8 +72,9 @@ nav ul li a {
 
 #look-up-word {
   height: 100vh;
-  padding: 5%;
+  margin: auto;
   padding-top: 30vh;
+  padding: 040vh 10% 0;
   text-align: left;
 }
 
@@ -68,8 +90,9 @@ nav ul li a {
   background-color: transparent;
   border-style: none;
   border-left:  solid 5px;
-  border-color: #BD0FE1;
+  color: #33f396;
   padding-left: 10px;
+  width: 60%;
 }
 
 #word-retrieval input[type="text"] {
@@ -79,7 +102,7 @@ nav ul li a {
 }
 
 ::placeholder {
-  color: #F2E6CB;
+  color: #CFC8CA;
   font-family: 'PT Mono', monospace;
   padding-left: 20px;
 }
@@ -91,7 +114,7 @@ input[type="text"]:focus {
 .auth input {
   background-color: transparent;
   border-style: solid 2px ;
-  border-color: #BD0FE1;
+  border-color: #33f396;
 
 
 }
@@ -99,37 +122,26 @@ input[type="text"]:focus {
    outline: none;
 }
 
-#word-submit, .add-word, .auth input[type="submit"], button{
+input[type="submit"], button{
   font-family: 'PT Mono', monospace;
   background-color: transparent;
   border: solid 2px;
   padding: 2px 20px;
-  color: #FBF3E0;
-  background-color: #BD0FE1
+  color: #FFF7F9;
+  background-color: #33f396
 }
 
 button a{
     text-decoration: none;
-    color:#FBF3E0;
+    color:#FFF7F9;
 
 }
 
-
+#delete{
+  margin: 2% 0 ;
+}
 edit-submit
 /*results page*/
-
-
-
-/*h2 {
-  font-size: 1.3rem;
-  font-weight: bold;
-  padding: 5% 0 2%;
-}*/
-
-p {
-  letter-spacing: 1px;
-}
-
 
 
 .add-word {
@@ -165,17 +177,12 @@ p {
 .example {
   height: 200px;
 }
-.container h2{
-  padding: 5% 0 2%;
-}
 
-.container p {
-  padding: 2% 0 8%;
-}
+
 
 /*auth page*/
 .auth {
-  color: #BD0FE1;
+  color: #33f396;
 
 }
 
@@ -183,9 +190,8 @@ p {
   font-size: 3rem;
   padding: 5% 0;
 }
-input[type="submit"]{
-  font-size: 1rem;
-}
+
+
 
 .auth input[type="text"],  input[type="email"] , .auth input[type="password"] {
   display: block;
@@ -194,7 +200,7 @@ input[type="submit"]{
   width: 40%;
   font-size: 1.2rem;
   font-family: 'PT Mono', monospace;
-  color: #BD0FE1;
+  color: #33f396;
 }
 
 .edit-blah #edit, .auth input[type="text"],  input[type="email"] , .auth input[type="password"] {
@@ -204,41 +210,27 @@ input[type="submit"]{
   width: 40%;
   font-size: 1.2rem;
   font-family: 'PT Mono', monospace;
-  color: #BD0FE1;
+  color: #33f396;
 }
 /*redundant*/
 .edit-blah #edit {
-  border: 2px solid #BD0FE1;
+  border: 2px solid #33f396;
   background-color: transparent;
 }
 .edit-blah #edit, .auth ::placeholder {
-    color: #BD0FE1;
+    color: #33f396;
 }
 
 
 
-h1{
-font-family: 'PT Serif', serif;
-font-size: 5rem;
-font-weight: bold;
-}
 
-
-/*word in list*/
-
- h2 {
-  font-size: 1.3rem;
-  font-weight: bold;
-  padding: 5% 0 2%;
-  padding: 0;
-}
 .wordInList h1 {
   font-size: 1.2rem;
   font-family: 'PT Mono', monospace;
 }
 .row {
   margin: 50px;
-  border: 2px dotted #BD0FE1;
+  border: 2px dotted #33f396;
 }
 
 .col-xs {

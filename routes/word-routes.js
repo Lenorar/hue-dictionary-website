@@ -13,14 +13,7 @@ const authHelpers = require('../services/auth/auth-helpers');
 
 wordsRouter.post('/results', wordHelper.getWord, wordsController.results);
 
-// wordsRouter.post('/', wordsController.create);
 
-// wordsRouter.get('/auth/dictionary', (req, res) => {
-//   res.render('words/dictionary');
-// });
-
-
-// authHelpers.loginRequired,
 wordsRouter.post('/', authHelpers.loginRequired, wordsController.create, wordsController.userAndWord, wordsController.index);
 
 wordsRouter.get('/:id', wordsController.show);

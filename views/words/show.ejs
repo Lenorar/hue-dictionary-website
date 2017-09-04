@@ -5,11 +5,9 @@
 
 
   <div>
-      <button class="delete-button">
         <form  action="/words/<%=word.id%>?_method=DELETE" method="POST">
-           <input class="delete" type="submit" value="Delete"/>
+           <input id="delete" type="submit" value="Delete"/>
         </form>
-      </button>
     <h1 class="word-title"><%= word.title%></h1>
     <div class="etymology-container">
 
