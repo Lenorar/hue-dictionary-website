@@ -8,14 +8,6 @@ Word.findAll = () => {
   return db.query('SELECT * FROM words');
 };
 
-// Word.join = (word) => {
-//   return db.query(
-//     `SELECT * FROM users INNER JOIN
-//     words ON users.id = words.user_id`
-//     )
-// }
-
-
 
 
 Word.create = (words, userid) => {
@@ -41,24 +33,6 @@ Word.userAndWord = (word) => {
     );
 };
 
-// Word.showUserWithWords = (userid) => {
-//   return db.manyOrNone (
-//     `
-//     SELECT words.definition, words.title
-//     FROM words INNER JOIN
-//     users_words ON words.id = word_id
-//     WHERE users_words.user_id=$1
-//     RETURNING *
-//     `,
-//      [userid]
-//     );
-// };
-
-
-
-
-
-
 
 Word.showUserWithWords = (userid) => {
   return db.manyOrNone(
@@ -68,31 +42,24 @@ Word.showUserWithWords = (userid) => {
     [userid]
     );
 };
-
-
-
-
-// Word.showUserWithWords = (id) => {
-//   return db.oneOrNone(`SELECT * FROM words WHERE words.user_id = $1`, [id]);
-// }
-
-Word.update = (word, id) => {
-  console.log(word);
-  return db.one(
-    `
-      UPDATE words SET
-
-      WHERE id = $3
-      RETURNING *
-    `,
-    [ id]
-  );
-};
-
 Word.findById = (id) => {
     console.log('this is the id', id);
     return db.oneOrNone(`SELECT * FROM words WHERE id = $1`, [id])
 }
+
+
+Word.update = (word, id) => {
+  console.log('this is the examples', word.examples);
+  return db.none(
+    `
+      UPDATE words SET
+      examples = $1
+      WHERE id = $2
+    `,
+    [word.examples, id]
+  );
+};
+
 
 
 Word.destroy = (word) => {
