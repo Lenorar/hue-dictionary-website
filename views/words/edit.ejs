@@ -2,12 +2,12 @@
 
 
 <form action="<%= `/words/${word.id}?_method=PUT` %>" method="POST">
-  <label for="title">edit this</label>
+  <h2>Edit Sentence</h2>
   <input id="edit" type="text" name="examples" value="<%= word.examples %>" />
   <input type="submit" value="Save changes" />
 </form>
 
-<a href="<%= `/words/${word.id}` %>">Cancel</a>
+<button><a href="<%= `/words/${word.id}` %>">Cancel</a></button>
 
 <% include ../partials/end %>
 

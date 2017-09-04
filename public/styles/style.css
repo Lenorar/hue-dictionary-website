@@ -117,7 +117,7 @@ input[type="text"]:focus {
    outline: none;
 }
 
-input[type="submit"], button{
+input[type="submit"], button, a.registerLogin{
   font-family: 'PT Mono', monospace;
   background-color: transparent;
   border: solid 2px;
@@ -125,20 +125,27 @@ input[type="submit"], button{
   height: 40px;
   font-size: 1rem;
   color: #FEFFF9;
+  margin: 20px 0;
   background-color: #33f396
 }
 
 
-input[type="submit"], .add-word {
+input[type="submit"] .add-word {
   float:right;
 }
 
 
+a {
+  text-decoration: none;
+}
+
+.registerFromLogin {
+  margin-top: 100px;
+}
 
 button a{
     text-decoration: none;
     color:#FEFFF9;
-
 }
 
 #delete{
@@ -200,8 +207,7 @@ edit-submit
   font-family: 'PT Mono', monospace;
   color: #33f396;
 }
-
-.edit-blah #edit, .auth input[type="text"],  input[type="email"] , .auth input[type="password"] {
+ #edit, .auth input[type="text"],  input[type="email"] , .auth input[type="password"] {
   display: block;
   margin: 2% 0;
   height: 50px;
@@ -211,6 +217,11 @@ edit-submit
   color: #33f396;
 }
 
+#edit {
+  width: 100%;
+  padding-left:15px;
+  border: solid 2px #33f396;
+}
 .wordInList h1 {
   font-size: 1.2rem;
   font-family: 'PT Mono', monospace;
