@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 
 //in order to get username on my profile page
 app.use((req, res, next) => {
-  res.locals.users= req.users || null;
+  res.locals.users = req.users || null;
   next();
 });
 
