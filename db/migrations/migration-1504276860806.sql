@@ -1,6 +1,3 @@
-
-\connect dictionary_app_dev;
-
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS words CASCADE;
 DROP TABLE IF EXISTS users_words CASCADE;
