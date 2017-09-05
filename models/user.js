@@ -21,9 +21,9 @@ User.create = (user) => {
 User.findUserWords = (id) => {
   console.log(id.user_id)
   return db.query(
-    `SELECT * FROM words WHERE words.user_id=$1
+    `SELECT * FROM words JOIN users ON words.user_id = users.id WHERE words.user_id = $1
     `,
-    [id.user_id]);
+    [id]);
 };
 
 

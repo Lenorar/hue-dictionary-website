@@ -5,11 +5,12 @@ const usersController = {};
 
 //this adds lists all the words associated to user logded in
 usersController.listOfWords = (req, res, next) => {
-  User.findUserWords({
-    user_id: req.user.id
-  })
+  User.findUserWords(req.user.id)
     .then( words => {
-      res.render('user/profile', { word: words });
+      console.log(words)
+      res.render('user/profile', {
+       words: words
+     });
     })
     .catch(err => {
       res.status(400).json(err);

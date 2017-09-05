@@ -37,6 +37,13 @@ app.get('/', (req, res) => {
 });
 
 
+app.use((req, res, next) => {
+  res.locals.users= req.users || null;
+  next();
+});
+
+
+
 app.use('/auth', authRouter);
 
 app.use('/words', wordsRouter)
