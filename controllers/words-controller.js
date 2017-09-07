@@ -117,7 +117,7 @@ wordsController.destroyFromUserAndWords = (req, res, next) => {
 wordsController.deleteFromWords = (req, res) => {
   Word.deleteFromWords(req.params.id)
     .then(() => {
-       res.redirect(`/user/profile`)
+       res.redirect(`user/profile`)
     })
     .catch(err => {
       res.status(400).json(err);
