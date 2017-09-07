@@ -43,7 +43,7 @@ wordsController.index = (req, res) => {
     user_id: req.user.id
   })
     .then( words => {
-      res.render('index', {
+      res.render('user/profile', {
         word: words
       });
     })
