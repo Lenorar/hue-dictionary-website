@@ -9,7 +9,7 @@ usersController.listOfWords = (req, res, next) => {
     .then( words => {
       console.log(words)
       res.render('user/profile', {
-       word: words
+       words: words
      });
     })
     .catch(err => {
