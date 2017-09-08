@@ -20,4 +20,3 @@ wordsRouter.delete('/:id', wordsController.destroyFromUserAndWords, wordsControl
 
 
 module.exports = wordsRouter;
-
